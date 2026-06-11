@@ -1,0 +1,47 @@
+{
+  "name": "opencode-tui-status-indicator",
+  "version": "1.0.0",
+  "description": "OpenCode TUI plugin that shows agent status in the terminal tab title with an animated spinner",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "tui",
+    "terminal",
+    "title",
+    "spinner",
+    "status",
+    "indicator"
+  ],
+  "author": "Søren Juul <sorenjuul>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sorenjuul/opencode-tui-status-indicator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sorenjuul/opencode-tui-status-indicator/issues"
+  },
+  "homepage": "https://github.com/sorenjuul/opencode-tui-status-indicator#readme",
+  "peerDependencies": {
+    "@opencode-ai/plugin": ">=1.0.85"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.17.3",
+    "typescript": "^5.8.0"
+  }
+}
