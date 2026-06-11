@@ -1,11 +1,15 @@
 {
   "name": "opencode-tui-status-indicator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "OpenCode TUI plugin that shows agent status in the terminal tab title with an animated spinner",
   "type": "module",
   "main": "./dist/index.js",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./tui": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     }
