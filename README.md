@@ -18,7 +18,7 @@ The tab title also shows the current session name, e.g. `⠹ Fix auth middleware
 ## Install
 
 ```bash
-opencode plugin opencode-tui-status-indicator
+opencode plugin opencode-tui-status-indicator --global
 ```
 
 Restart OpenCode and the spinner will appear in your terminal tab.
