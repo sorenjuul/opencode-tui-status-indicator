@@ -1,3 +1,5 @@
 node_modules/
 dist/
 /.idea/
+# Local dev only — wires this checkout up as its own plugin with an absolute path.
+opencode.jsonc
