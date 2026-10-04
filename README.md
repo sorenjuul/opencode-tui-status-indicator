@@ -18,14 +18,32 @@ The tab title also shows the current session name, e.g. `⠹ Fix auth middleware
 ## Install
 
 ```bash
-opencode plugin opencode-tui-status-indicator --global
+opencode plugin add opencode-tui-status-indicator
 ```
 
 Restart OpenCode and the spinner will appear in your terminal tab.
 
+## Prerequisite: disable built-in title
+
+OpenCode's TUI overwrites the terminal title with `OC | {session}` on every route change. Disable it so this plugin owns the title (verified on OpenCode v2.0.22):
+
+In `~/.config/opencode/tui.json`:
+
+```json
+{
+  "terminal": {
+    "title": false
+  }
+}
+```
+
+Or via command palette: `Disable terminal title` (`terminal.title.toggle`).
+
+Restart OpenCode after changing.
+
 ## How it works
 
-This plugin uses OpenCode's TUI plugin API (`renderer.setTerminalTitle()`) to set the terminal tab title based on session events. Unlike plugins that write OSC escape sequences directly (which get captured by the TUI), this approach goes through OpenCode's renderer and works correctly on all platforms including Windows.
+This plugin uses OpenCode v2's CLI plugin API (`@opencode/plugin/tui`, `context.renderer.setTerminalTitle()` + `context.data.on(...)`) to set the terminal tab title based on session events. Unlike plugins that write OSC escape sequences directly (which get captured by the TUI), this approach goes through OpenCode's renderer and works correctly on all platforms including Windows.
 
 ## License
 
