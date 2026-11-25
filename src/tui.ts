@@ -29,6 +29,10 @@ export default Plugin.define({
       }
     }
 
+    function isCurrentSession(sessionID?: string): boolean {
+      return !!sessionID && sessionID === currentSessionID();
+    }
+
     function currentRouteKey(): string {
       try {
         const route = context.ui.router.current();
@@ -89,6 +93,7 @@ export default Plugin.define({
     }
 
     function setStatus(status: Status, sessionID?: string) {
+      if (!isCurrentSession(sessionID)) return;
       if (sessionID) title = resolveTitle(sessionID);
       currentStatus = status;
       if (status === "busy") startSpinner();
@@ -140,6 +145,7 @@ export default Plugin.define({
       ),
 
       data.on("session.created", (event) => {
+        if (!isCurrentSession(event.data.sessionID)) return;
         if (event.data.title) {
           title = event.data.title;
           renderTitle();
@@ -150,6 +156,7 @@ export default Plugin.define({
       }),
 
       data.on("session.renamed", (event) => {
+        if (!isCurrentSession(event.data.sessionID)) return;
         title = event.data.title;
         renderTitle();
       }),
